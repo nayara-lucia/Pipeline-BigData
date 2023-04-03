@@ -13,6 +13,10 @@ spark = SparkSession.builder.master("local[*]")\
 
 # Criando dataframes diretamente do Hive
 df_clientes = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_CLIENTES")
+df_divisao = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_DIVISAO")
+df_endereco = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_ENDERECO")
+df_regiao = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_REGIAO")
+df_vendas = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_VENDAS")
 
 # Espaço para tratar e juntar os campos e a criação do modelo dimensional
 

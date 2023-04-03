@@ -1,6 +1,6 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS desafio_curso.TBL_REGIAO ( 
-        Region Code string,
-        Region Name string
+        `Region Code` string,
+        `Region Name` string
     )
 COMMENT 'Tabela de Regiao'
 ROW FORMAT DELIMITED

@@ -1,6 +1,6 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS desafio_curso.TBL_DIVISAO ( 
-        Division string,
-        Division Name string
+        `Division` string,
+        `Division Name` string
     )
 COMMENT 'Tabela de Divisao'
 ROW FORMAT DELIMITED

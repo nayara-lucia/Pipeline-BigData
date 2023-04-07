@@ -1,12 +1,12 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS desafio_curso.TBL_ENDERECO ( 
         `Address Number` string,
-        `City` string,
-        `Country` string,
+        City string,
+        Country string,
         `Customer Address 1` string,
         `Customer Address 2` string,
         `Customer Address 3` string,
         `Customer Address 4` string,
-        `State` string,
+        State string,
         `Zip Code` string
 
     )

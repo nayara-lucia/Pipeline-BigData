@@ -18,13 +18,36 @@ df_endereco = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_ENDERECO")
 df_regiao = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_REGIAO")
 df_vendas = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_VENDAS")
 
-# Espaço para tratar e juntar os campos e a criação do modelo dimensional
+#1 Espaço para tratar e juntar os campos e a criação do modelo dimensional
+#1.1 Criação das tabelas temporárias para tratar os dados com SQL
+
+df_clientes.createOrReplaceTempView("clientes")
+df_divisao.createOrReplaceTempView("divisao")
+df_endereco.createOrReplaceTempView("endereco")
+df_regiao.createOrReplaceTempView("regiao")
+df_vendas.createOrReplaceTempView("vendas")
+
+#1.2 Criação da tabela stage
+
+df_stage = spark.sql(
+'''
+select * from vendas v
+inner join clientes c on c.CustomerKey = v.CustomerKey
+left join endereco e on e.`Address Number` = c.`Address Number`
+left join divisao d on c.Division = d.Division
+left join regiao r on c.`Region Code` = r.`Region Code`
+
+'''
+).show(10)
 
 # criando o fato
 ft_vendas = []
 
 #criando as dimensões
 dim_clientes = []
+dim_endereco = []
+dim_regiao = []
+dim_divisao = []
 
 # função para salvar os dados
 def salvar_df(df, file):

@@ -18,17 +18,27 @@ df_endereco = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_ENDERECO")
 df_regiao = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_REGIAO")
 df_vendas = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_VENDAS")
 
-#1 Espaço para tratar e juntar os campos e a criação do modelo dimensional
-#1.1 Criação das tabelas temporárias para tratar os dados com SQL
+# Espaço para tratar e juntar os campos e a criação do modelo dimensional
 
+# Campos strings vazios deverão ser preenchidos com NÃO INFORMADO
+# LIMPANDO VAZIOS DE CLIENTES
+df_clientes = df_clientes.select([when(col(c)=="   ","Não informado").otherwise(col(c)).alias(c) for c in df_clientes.columns])
+# LIMPANDO VAZIOS DE ENDERECO
+df_endereco = df_endereco.select([when(col(c)=="                                        ","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
+df_endereco = df_endereco.select([when(col(c)=="","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
+df_endereco = df_endereco.select([when(col(c)=="                         ","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
+df_endereco = df_endereco.select([when(col(c)=="            ","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
+# LIMPANDO VAZIOS DE VENDAS
+df_vendas = df_vendas.select([when(col(c)=="","Não informado").otherwise(col(c)).alias(c) for c in df_vendas.columns])
+
+# TABELAS TEMPORARIAS 
 df_clientes.createOrReplaceTempView("clientes")
 df_divisao.createOrReplaceTempView("divisao")
 df_endereco.createOrReplaceTempView("endereco")
 df_regiao.createOrReplaceTempView("regiao")
 df_vendas.createOrReplaceTempView("vendas")
 
-#1.2 Criação da tabela stage
-
+# TABELA STAGE 
 df_stage = spark.sql(
 '''
 select * from vendas v
@@ -39,6 +49,8 @@ left join regiao r on c.`Region Code` = r.`Region Code`
 
 '''
 ).show(10)
+
+# Criação das PKS na tabela stage
 
 # criando o fato
 ft_vendas = []

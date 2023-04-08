@@ -53,7 +53,23 @@ df_stage = df_stage.withColumn('PK_LOCAL', sha2(concat_ws('_', df_stage['Region 
 df_stage = df_stage.withColumn('PK_TEMPO', sha2(concat_ws('_', df_stage['DateKey'],df_stage['Promised Delivery Date'],df_stage['Actual Delivery Date'],df_stage['Invoice Date']), 256))
 
 # criando o fato
-ft_vendas = []
+ft_vendas = spark.sql("""
+SELECT
+PK_CLIENTE,
+PK_LOCAL,
+PK_TEMPO,
+`Sales Amount`,
+`Sales Amount Based on List Price`,
+`Sales Cost Amount`,
+`Sales Margin Amount`,
+`Sales Price`,
+`Sales Quantity`,
+`Sales Rep`,
+Item
+
+
+FROM stage group by PK_CLIENTE, PK_LOCAL, PK_TEMPO,`Sales Amount`,`Sales Amount Based on List Price`,`Sales Cost Amount`,`Sales Margin Amount`,`Sales Price`,`Sales Quantity`,`Sales Rep`,Item
+""").show(10)
 
 #criando as dimensões
 DIM_CLIENTES = spark.sql("""
@@ -101,9 +117,9 @@ FROM stage
 
 # função para salvar os dados
 def salvar_df(df, file):
-    output = "/input/desafio_hive/gold/" + file
+    output = "/input/gold/" + file
     erase = "hdfs dfs -rm " + output + "/*"
-    rename = "hdfs dfs -get /datalake/gold/"+file+"/part-* /input/desafio_hive/gold/"+file+".csv"
+    rename = "hdfs dfs -get /datalake/gold/"+file+"/part-* /input/gold/"+file+".csv"
     print(rename)
     
     
@@ -117,4 +133,8 @@ def salvar_df(df, file):
     os.system(erase)
     os.system(rename)
 
-salvar_df(dim_clientes, 'dimclientes')
+
+    salvar_df(ft_vendas, 'ft_vendas')
+    salvar_df(dim_clientes, 'dim_clientes')
+    salvar_df(dim_localidade, 'dim_localidade')
+    salvar_df(dim_tempo, 'dim_tempo')

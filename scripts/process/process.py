@@ -39,27 +39,65 @@ df_regiao.createOrReplaceTempView("regiao")
 df_vendas.createOrReplaceTempView("vendas")
 
 # TABELA STAGE 
-df_stage = spark.sql(
-'''
-select * from vendas v
-inner join clientes c on c.CustomerKey = v.CustomerKey
-left join endereco e on e.`Address Number` = c.`Address Number`
-left join divisao d on c.Division = d.Division
-left join regiao r on c.`Region Code` = r.`Region Code`
-
-'''
-).show(10)
+df_stage = df_vendas.alias('v') \
+.join(df_clientes.alias('c'), on='customerkey',how='inner') \
+.join(df_divisao.alias('d'), on='division', how='left') \
+.join(df_endereco.alias('e'), on='address number', how='left') \
+.join(df_regiao.alias('r'), on='region code', how='left') \
 
 # Criação das PKS na tabela stage
+df_stage = df_stage.withColumn('PK_CLIENTE', sha2(concat_ws('_', df_stage['Address Number'], df_stage['Business Family'],df_stage['Business Unit'],df_stage['Customer'],df_stage['CustomerKey'],df_stage['Customer Type'],df_stage['Division'],df_stage['Line of Business'],df_stage['Phone'],df_stage['Region Code'],df_stage['Regional Sales Mgr'],df_stage['Search Type']), 256))
+
+df_stage = df_stage.withColumn('PK_LOCAL', sha2(concat_ws('_', df_stage['Region Code'], df_stage['Region Name'],df_stage['Division'], df_stage['Division Name'],df_stage['Address Number'], df_stage['City'], df_stage['Country'],df_stage['Customer Address 1'],df_stage['Customer Address 2'],df_stage['Customer Address 3'],df_stage['Customer Address 4'],df_stage['State'],df_stage['Zip Code']), 256))
+
+df_stage = df_stage.withColumn('PK_TEMPO', sha2(concat_ws('_', df_stage['DateKey'],df_stage['Promised Delivery Date'],df_stage['Actual Delivery Date'],df_stage['Invoice Date']), 256))
 
 # criando o fato
 ft_vendas = []
 
 #criando as dimensões
-dim_clientes = []
-dim_endereco = []
-dim_regiao = []
-dim_divisao = []
+DIM_CLIENTES = spark.sql("""
+SELECT DISTINCT
+PK_CLIENTE,
+CustomerKey,
+Customer,
+`Customer Type`,
+`Line Of Business`,
+`Business Unit`,
+`Business Family`,
+`Regional Sales Mgr`,
+Phone,
+Division,
+`Address Number`
+
+FROM stage
+""")]
+
+DIM_LOCALIDADE = spark.sql("""
+SELECT DISTINCT
+PK_LOCAL,
+`Address Number`,
+`Customer Address 1`,
+City,
+Country,
+State,
+`Region Name`,
+`Division Name`
+
+
+FROM stage
+""")
+
+DIM_TEMPO = spark.sql("""
+SELECT DISTINCT
+PK_TEMPO,
+DateKey,
+`Promised Delivery Date`,
+`Actual Delivery Date`,
+`Invoice Date`
+
+FROM stage
+""")
 
 # função para salvar os dados
 def salvar_df(df, file):

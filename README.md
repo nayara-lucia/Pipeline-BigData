@@ -18,7 +18,7 @@ Para a movimentação e criação de pastas dentro do HDFS e também da criaçã
 Foram utilizadas tabelas de vendas, clientes, endereço, região, divisão com esses dados foi necessário realizar a desnormatização das tabelas e transforma-las em um modelo dimensional de formato estrela.
 Para isso, utilizando linguagem SQL dentro do Spark, foi realizado diversos joins para que fosse possível chegar ao resultado esperado, além da necessidade de preencher campos vazios com "Não informado" de acordo com o desejo do cliente.
 
-Após o tratamento de dados e a criação do nosso modelo estrela, foi possível obter as tabelas tratadas e assim criamos nossa estrutura no PowerBI realizando consultas afim de ajudar a área de BI na tomada de decisões.
+Após o tratamento de dados e a criação do nosso modelo estrela, com as tabelas tratadas criamos nossa estrutura no PowerBI para que a área de Business Intelligence consiga realizar consultas e análises para tomada de decisões.
 
 ![image](https://user-images.githubusercontent.com/126920974/230743241-db2c1ee3-cc80-432c-9803-c641f210c64f.png)
 

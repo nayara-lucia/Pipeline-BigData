@@ -22,14 +22,18 @@ df_vendas = spark.sql("SELECT * FROM DESAFIO_CURSO.TBL_VENDAS")
 
 # Campos strings vazios deverão ser preenchidos com NÃO INFORMADO
 # LIMPANDO VAZIOS DE CLIENTES
-df_clientes = df_clientes.select([when(col(c)=="   ","Não informado").otherwise(col(c)).alias(c) for c in df_clientes.columns])
+df_clientes = df_clientes.withColumn("line of business", when(trim(df_clientes["line of business"]) == "", "Não informado").otherwise(df_clientes["line of business"]))
 # LIMPANDO VAZIOS DE ENDERECO
-df_endereco = df_endereco.select([when(col(c)=="                                        ","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
-df_endereco = df_endereco.select([when(col(c)=="","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
-df_endereco = df_endereco.select([when(col(c)=="                         ","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
-df_endereco = df_endereco.select([when(col(c)=="            ","Não informado").otherwise(col(c)).alias(c) for c in df_endereco.columns])
+df_endereco = df_endereco.withColumn("zip code", when(trim(df_endereco["zip code"]) == "", "Não informado").otherwise(df_endereco["zip code"]))
+df_endereco = df_endereco.withColumn("City", when(trim(df_endereco["City"]) == "", "Não informado").otherwise(df_endereco["City"]))
+df_endereco = df_endereco.withColumn("Customer Address 1", when(trim(df_endereco["Customer Address 1"]) == "", "Não informado").otherwise(df_endereco["Customer Address 1"]))
+df_endereco = df_endereco.withColumn("Customer Address 2", when(trim(df_endereco["Customer Address 2"]) == "", "Não informado").otherwise(df_endereco["Customer Address 2"]))
+df_endereco = df_endereco.withColumn("Customer Address 3", when(trim(df_endereco["Customer Address 3"]) == "", "Não informado").otherwise(df_endereco["Customer Address 3"]))
+df_endereco = df_endereco.withColumn("Customer Address 4", when(trim(df_endereco["Customer Address 4"]) == "", "Não informado").otherwise(df_endereco["Customer Address 4"]))
+df_endereco = df_endereco.withColumn("state", when(trim(df_endereco["state"]) == "", "Não informado").otherwise(df_endereco["state"]))
 # LIMPANDO VAZIOS DE VENDAS
-df_vendas = df_vendas.select([when(col(c)=="","Não informado").otherwise(col(c)).alias(c) for c in df_vendas.columns])
+df_vendas = df_vendas.withColumn("Item Class", when(trim(df_vendas["Item Class"]) == "", "Não informado").otherwise(df_vendas["Item Class"]))
+df_vendas = df_vendas.withColumn("Item Number", when(trim(df_vendas["Item Number"]) == "", "Não informado").otherwise(df_vendas["Item Number"]))
 
 # TABELAS TEMPORARIAS 
 df_clientes.createOrReplaceTempView("clientes")

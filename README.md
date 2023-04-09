@@ -17,7 +17,7 @@ Para a movimentação e criação de pastas dentro do HDFS e também da criaçã
 Foram utilizadas tabelas de vendas, clientes, endereço, região, divisão com esses dados foi necessário realizar a desnormatização das tabelas e transforma-las em um modelo dimensional de formato estrela.
 Para isso, utilizando linguagem SQL dentro do Spark, foi realizado diversos joins para que fosse possível chegar ao resultado esperado, além da necessidade de tratar os dados de acordo com a necessidade do cliente, como por exemplo preencher campos string vazios com "Não informado", etc. Para nossa tabela stage, criamos as devidas DW keys, e em seguida realizando a criação e identificação da nossa Fato (Vendas) e Dimensões (Localidade, Tempo e Clientes).
 <br></br>
-Após o tratamento de dados e a criação do nosso modelo estrela, com as tabelas tratadas criamos nossa estrutura no PowerBI para que a área de Business Intelligence consiga realizar consultas e análises para tomada de decisões.
+Após o tratamento de dados e a criação do nosso modelo estrela, com as tabelas tratadas, já na fase Gold do nosso DataLake, criamos nossa estrutura no PowerBI para que a área de Business Intelligence consiga realizar consultas e análises para tomada de decisões.
 <br></br>
 
 ![image](https://user-images.githubusercontent.com/126920974/230743241-db2c1ee3-cc80-432c-9803-c641f210c64f.png)

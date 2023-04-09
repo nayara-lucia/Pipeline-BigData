@@ -33,4 +33,5 @@ Após o tratamento de dados e a criação do nosso modelo estrela, com as tabela
 <li> ETL x ELT </li>
 <li> Tabelas internas e externas no Hive </li>
 <li> Tabela stage e desnormatização de dados </li>
+<li> PowerBI para apresentação das informações </li>
 

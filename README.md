@@ -13,18 +13,16 @@ Nesse projeto foi apresentado um desenvolvimento de um Pipeline de ingestão de 
 
 <h4 tabindex="-1" dir="auto">⚒️ Construção do Projeto ⚒️</h4>
 Para a movimentação e criação de pastas dentro do HDFS e também da criação das tabelas externas no Hive foi utilizado o ShellScript para a automação do processo.
-
-
+<br></br>
 Foram utilizadas tabelas de vendas, clientes, endereço, região, divisão com esses dados foi necessário realizar a desnormatização das tabelas e transforma-las em um modelo dimensional de formato estrela.
 Para isso, utilizando linguagem SQL dentro do Spark, foi realizado diversos joins para que fosse possível chegar ao resultado esperado, além da necessidade de preencher campos vazios com "Não informado" de acordo com o desejo do cliente.
-
+<br></br>
 Após o tratamento de dados e a criação do nosso modelo estrela, com as tabelas tratadas criamos nossa estrutura no PowerBI para que a área de Business Intelligence consiga realizar consultas e análises para tomada de decisões.
+<br></br>
 
 ![image](https://user-images.githubusercontent.com/126920974/230743241-db2c1ee3-cc80-432c-9803-c641f210c64f.png)
-
-
+<br></br>
 <h4 tabindex="-1" dir="auto">📚 Principais conceitos aprendidos</h4>
-
 <li> 5 Vs do Big Data e sua importância para ánalise de dados </li>
 <li> Modelo estrela x Snowflake </li>
 <li> Conceitos de Docker e Manipulação dos contêineres </li>

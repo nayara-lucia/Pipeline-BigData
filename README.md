@@ -12,7 +12,7 @@ Nesse projeto foi apresentado um desenvolvimento de um Pipeline de ingestão de 
 
 
 <h4 tabindex="-1" dir="auto">⚒️ Construção do Projeto ⚒️</h4>
-Para a movimentação e criação de pastas dentro do HDFS e também da criação das tabelas externas no Hive foi utilizado o ShellScript para a automação do processo.
+Para a movimentação e criação de pastas dentro do HDFS e também da criação das tabelas externas no Hive foi utilizado ShellScript para a automação do processo.
 <br></br>
 Foram utilizadas tabelas de vendas, clientes, endereço, região, divisão com esses dados foi necessário realizar a desnormatização das tabelas e transforma-las em um modelo dimensional de formato estrela.
 Para isso, utilizando linguagem SQL dentro do Spark, foi realizado diversos joins para que fosse possível chegar ao resultado esperado, além da necessidade de preencher campos vazios com "Não informado" de acordo com o desejo do cliente.

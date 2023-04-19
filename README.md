@@ -48,6 +48,7 @@ Neste desafio serão feitas as ingestões dos dados que estão na pasta /raw ond
 Seu trabalho como engenheiro de dados/arquiteto de BI é prover dados em uma pasta desafio_curso/gold em .csv para ser consumido por um relatório em PowerBI que deverá ser construído dentro da pasta 'app' (já tem o template).
 
 📑 ETAPAS
+
 Etapa 1 - Enviar os arquivos para o HDFS
     - nesta etapa lembre de criar um shell script para fazer o trabalho repetitivo (não é obrigatório)
 

@@ -32,6 +32,7 @@ Após o tratamento de dados e a criação do nosso modelo estrela, com as tabela
 <li> Conceitos de Datalake </li>
 <li> ETL x ELT </li>
 <li> Tabelas internas e externas no Hive </li>
+<li> Processamento de dados no Spark utilizando Pyspark e SQL </li>
 <li> Tabela stage e desnormatização de dados </li>
 <li> PowerBI para apresentação das informações </li>
 <br></br>

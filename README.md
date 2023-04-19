@@ -34,7 +34,7 @@ Após o tratamento de dados e a criação do nosso modelo estrela, com as tabela
 <li> Tabelas internas e externas no Hive </li>
 <li> Tabela stage e desnormatização de dados </li>
 <li> PowerBI para apresentação das informações </li>
-
+<br></br>
 📌 ESCOPO DO DESAFIO
 Neste desafio serão feitas as ingestões dos dados que estão na pasta /raw onde vamos ter alguns arquivos .csv de um banco relacional de vendas.
 

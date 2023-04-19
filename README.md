@@ -77,7 +77,8 @@ Etapa 5 - Exportar os dados para a pasta desafio_curso/gold
 Etapa 6 - Criar e editar o PowerBI com os dados que você trabalhou.
 
 No PowerBI criar gráficos de vendas.
-Etapa 7 - Criar uma documentação com os testes e etapas do projeto.
+
+
 
 REGRAS
 Campos strings vazios deverão ser preenchidos com 'Não informado'.

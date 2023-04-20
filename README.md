@@ -20,7 +20,7 @@ Para isso, utilizando linguagem SQL dentro do Spark, foi realizado diversos join
 Após o tratamento de dados e a criação do nosso modelo estrela, com as tabelas tratadas, já na fase Gold do nosso DataLake, criamos nossa estrutura no PowerBI para que a área de Business Intelligence consiga realizar consultas e análises para tomada de decisões.
 <br></br>
 
-![image](https://user-images.githubusercontent.com/126920974/230743241-db2c1ee3-cc80-432c-9803-c641f210c64f.png)
+![image](https://user-images.githubusercontent.com/126920974/233228015-2469df4e-c3fa-4f63-b367-2d9ba2d08c2c.png)
 <br></br>
 <h4 tabindex="-1" dir="auto">📚 Principais conceitos aprendidos</h4>
 <li> 5 Vs do Big Data e sua importância para ánalise de dados </li>

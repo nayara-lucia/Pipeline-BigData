@@ -6,6 +6,7 @@
 
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![Gitpod](https://img.shields.io/badge/gitpod-f06611.svg?style=for-the-badge&logo=gitpod&logoColor=white) ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white) ![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white)
 
+
 <h4 tabindex="-1" dir="auto"></a> 📍 Descrição do projeto</h4>
 
 Nesse projeto foi apresentado um desenvolvimento de um Pipeline de ingestão de dados utilizando Hive na arquitetura do Apache Hadoop juntamente com o processamento e tratamento dos dados com Spark. Projeto feito para ser usado pela área de Business Intelligence utilizar para análises no PowerBI e realizar a tomada de decisões
@@ -21,6 +22,7 @@ Após o tratamento de dados e a criação do nosso modelo estrela, com as tabela
 <br></br>
 
 ![image](https://user-images.githubusercontent.com/126920974/233228015-2469df4e-c3fa-4f63-b367-2d9ba2d08c2c.png)
+![image](https://user-images.githubusercontent.com/126920974/236626739-c72be5be-c0e7-4bee-905c-d1d8dcc5008a.png)
 <br></br>
 <h4 tabindex="-1" dir="auto">📚 Principais conceitos aprendidos</h4>
 <li> 5 Vs do Big Data e sua importância para ánalise de dados </li>

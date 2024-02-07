@@ -9,7 +9,7 @@
 
 <h4 tabindex="-1" dir="auto"></a> 📍 Descrição do projeto</h4>
 
-Nesse projeto foi apresentado um desenvolvimento de um Pipeline de ingestão de dados utilizando Hive na arquitetura do Apache Hadoop juntamente com o processamento e tratamento dos dados com Spark. Projeto feito para ser usado pela área de Business Intelligence utilizar para análises no PowerBI e realizar a tomada de decisões
+Nesse projeto foi apresentado um desenvolvimento de um Pipeline de dados utilizando Hive na arquitetura do Apache Hadoop juntamente com o processamento e tratamento dos dados com Spark. Projeto feito para ser usado pela área de Business Intelligence utilizar para análises no PowerBI e realizar a tomada de decisões
 
 
 <h4 tabindex="-1" dir="auto">⚒️ Construção do Projeto ⚒️</h4>
